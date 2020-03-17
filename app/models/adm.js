@@ -1,12 +1,9 @@
-const Adm = 
-{
-    id:1,
-    nome:"Allan",
-    senha:"1234",
-    todos: ()=>[
-        {id:1,nome:"Allan",senha:"1234",},
-        {id:2,nome:"Allan2",senha:"1234",}
-    ]   
-}
+var mongoose = require('../../db/conexao'); 
+
+const Adm = mongoose.model('user', { 
+  nome: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  senha: { type: String, required: true },
+});
 
 module.exports = Adm;
